@@ -6,7 +6,7 @@ const router = express.Router();
 const statistics = new StatisticsService();
 
 router.get('/', async (req, res) => {
-  const result = await statistics.applicationStatistics(req.body);
+  const result = await statistics.applicationStatistics(req.query.period as  "week" | "month" | "year");
   res.status(200).json(result);
 });
 
