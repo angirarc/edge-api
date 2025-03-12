@@ -4,12 +4,12 @@ import { JobStatus, type Job } from '../models/jobs.model';
 export class JobsService {
     private data = jobs;
 
-    async getJobs(body: any) {
+    async getJobs(filters: any) {
         try {
-            const { page = 1, limit = 10} = body;
+            const { page = 1, limit = 10} = filters;
             const skip = (page - 1) * limit;
 
-            const filtered = this.data.filter(job => job.status === JobStatus.DELETED);
+            const filtered = this.data.filter(job => job.status !== JobStatus.DELETED);
             const paginatedJobs = filtered.slice(skip, skip + limit);
             const total = filtered.length;
 

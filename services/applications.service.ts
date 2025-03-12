@@ -4,9 +4,9 @@ import type { Application } from "../models/applications.model";
 export class ApplicationsService {
     private data = applications;
 
-    async getApplications(body: any) {
+    async getApplications(filters: any) {
         try {
-            const { page = 1, limit = 10} = body;
+            const { page = 1, limit = 10} = filters;
             const skip = (page - 1) * limit;
 
             const paginatedApplications = this.data.slice(skip, skip + limit);

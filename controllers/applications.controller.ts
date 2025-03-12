@@ -6,7 +6,7 @@ const router = express.Router();
 const applications = new ApplicationsService();
 
 router.get('/', async (req, res) => {
-  const result = await applications.getApplications(req.body);
+  const result = await applications.getApplications(req.query);
   res.status(200).json(result);
 });
 

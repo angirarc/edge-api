@@ -6,7 +6,7 @@ const router = express.Router();
 const jobs = new JobsService();
 
 router.get('/', async (req, res) => {
-  const result = await jobs.getJobs(req.body);
+  const result = await jobs.getJobs(req.query);
   res.status(200).json(result);
 });
 
