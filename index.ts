@@ -5,7 +5,6 @@ import express from 'express';
 import { errorHandler } from './middleware/error';
 
 import jobs from './controllers/jobs.controller';
-import auth from './controllers/auth.controller';
 import statistics from './controllers/statistics.controller';
 import applications from './controllers/applications.controller';
 
@@ -18,7 +17,6 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.use('/auth', auth);
 app.use('/jobs', jobs);
 app.use('/statistics', statistics);
 app.use('/applications', applications);
