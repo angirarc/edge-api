@@ -1,6 +1,6 @@
 import express from 'express';
 
-import { auth } from '../../middleware/auth';
+import { auth } from '../middleware/auth';
 import { JobsService } from '../services/jobs.service';
 
 const router = express.Router();
@@ -30,3 +30,5 @@ router.delete('/:id', auth, async (req, res) => {
   const result = await jobs.deleteJob(req.params.id);
   res.status(200).json(result);
 });
+
+export default router;
